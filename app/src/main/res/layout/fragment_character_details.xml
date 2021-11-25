@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="characterdetails"
+            type="com.sample.domain.model.MarvelCharacter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/cor_character"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_character_details"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:id="@+id/tvCharacterDetailsName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_character_details"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:paddingTop="@dimen/margin_character_details"
+                        android:textSize="@dimen/text_size_character_name_character_details"
+                        android:text="@{characterdetails.name}"
+                        android:textColor="@android:color/primary_text_light"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:layout_marginTop="@dimen/margin_character_details"
+                        android:padding="@dimen/padding_character_details">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline_middle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_begin="@dimen/guideline_character_details" />
+
+                        <ImageView
+                            android:id="@+id/ivCharacterDetail"
+                            android:layout_width="@dimen/width_character_details"
+                            android:layout_height="@dimen/image_height_character_details"
+                            android:layout_marginEnd="@dimen/margin_character_details"
+                            android:background="@drawable/image_border"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/guideline_middle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="@dimen/margin_character_details"
+                            bind:image='@{characterdetails.thumbnail.component1()+"."+characterdetails.thumbnail.component2()}'
+                            tools:layout_height="@dimen/image_height_character_details" />
+
+                        <TextView
+                            android:id="@+id/tvCharacterDetailDescription"
+                            android:layout_width="@dimen/width_character_details"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_character_details"
+                            android:layout_marginTop="@dimen/margin_character_details"
+                            android:text="@{characterdetails.description}"
+                            android:textColor="@android:color/primary_text_light"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/guideline_middle" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/grp_details"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:constraint_referenced_ids="tvCharacterDetailDescription" />
+
+                        <TextView
+                            android:id="@+id/tvErrorDetail"
+                            android:layout_width="@dimen/width_character_details"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_character_details"
+                            android:text="@string/error_message"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_error_character_details"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/guideline_middle"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbLoading"
+                            android:layout_width="@dimen/width_character_details"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_character_details"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/guideline_middle"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

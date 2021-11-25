@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_size_character_list">240dp</dimen>
+    <dimen name="margin_character_list">16dp</dimen>
+    <dimen name="margin_character_details">16dp</dimen>
+    <dimen name="card_radius_character_list">8dp</dimen>
+    <dimen name="padding_character_list">8dp</dimen>
+    <dimen name="padding_character_details">16dp</dimen>
+    <dimen name="width_character_list">0dp</dimen>
+    <dimen name="width_character_details">0dp</dimen>
+    <dimen name="margin_bottom_character_list">8dp</dimen>
+    <dimen name="text_size_error_character_list">16sp</dimen>
+    <dimen name="text_size_error_character_details">16sp</dimen>
+    <dimen name="text_size_character_name_character_list">16sp</dimen>
+    <dimen name="text_size_character_description_character_list">16sp</dimen>
+    <dimen name="image_border_character_details">4dp</dimen>
+    <dimen name="image_height_character_details">200dp</dimen>
+    <dimen name="guideline_character_details">190dp</dimen>
+    <dimen name="text_size_character_name_character_details">20sp</dimen>
+</resources>
