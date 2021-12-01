@@ -5,9 +5,9 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.sample.domain.common.Result
 import com.sample.domain.model.CharacterThumbnail
 import com.sample.domain.model.MarvelCharacter
-import com.sample.domain.repository.CharacterDetailsRepository
-import com.sample.domain.usecase.characterdetails.GetCharacterDetailsUseCaseImpl
-import com.sample.marvelapplication.presentation.characterdetails.CharacterDetailsViewModel
+import com.sample.domain.repository.CharacterListRepository
+import com.sample.domain.usecase.characterlist.GetCharacterListUseCaseImpl
+import com.sample.marvelapplication.presentation.characterlist.CharacterListViewModel
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -26,34 +26,34 @@ import java.lang.Exception
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
-class CharachterDetailsViewModelTest {
+class CharacterListViewModelTest {
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
+
     private val testDispatcher = TestCoroutineDispatcher()
 
     @MockK
-    lateinit var getCharacterDetailsUseCase: GetCharacterDetailsUseCaseImpl
+    lateinit var getCharacterListUseCase: GetCharacterListUseCaseImpl
 
     @MockK
-    lateinit var characterDetailsRepository: CharacterDetailsRepository
+    lateinit var characterListRepository: CharacterListRepository
 
-    lateinit var charachtersViewModel: CharacterDetailsViewModel
+    private lateinit var characterListsViewModel: CharacterListViewModel
 
     @Before
     fun start() {
         //Used for initiation of Mockk
         Dispatchers.setMain(testDispatcher)
-        characterDetailsRepository = mock(CharacterDetailsRepository::class.java)
+        characterListRepository = mock(CharacterListRepository::class.java)
         MockitoAnnotations.initMocks(this)
-        getCharacterDetailsUseCase = GetCharacterDetailsUseCaseImpl(characterDetailsRepository)
-        charachtersViewModel =
-            CharacterDetailsViewModel(getCharacterDetailsUseCase)
-
+        getCharacterListUseCase = GetCharacterListUseCaseImpl(characterListRepository)
+        characterListsViewModel =
+            CharacterListViewModel(getCharacterListUseCase)
     }
 
     @Test
-    fun testGetCharacterId() = runBlocking {
-        whenever(getCharacterDetailsUseCase.invoke(1017100)).thenReturn(
+    fun testGetCharacterList() = runBlocking {
+        whenever(getCharacterListUseCase.invoke()).thenReturn(
             Result.Success(
                 listOf(
                     MarvelCharacter(
@@ -64,18 +64,18 @@ class CharachterDetailsViewModelTest {
                 )
             )
         )
-        val result = charachtersViewModel.getCharacterDetails(1017100)
+        val result = characterListsViewModel.getCharacterList()
         Assert.assertNotNull(result)
     }
 
     @Test
-    fun testGetCharacterIdError() = runBlocking {
-        whenever(getCharacterDetailsUseCase.invoke(1017100)).thenReturn(
+    fun testGetCharacterListError() = runBlocking {
+        whenever(getCharacterListUseCase.invoke()).thenReturn(
             Result.Error(
                 Exception("401 Unauthorized")
             )
         )
-        val result = charachtersViewModel.getCharacterDetails(1017100)
+        val result = characterListsViewModel.getCharacterList()
         Assert.assertNotNull(result)
     }
 }
