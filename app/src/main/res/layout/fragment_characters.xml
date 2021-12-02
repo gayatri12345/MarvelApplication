@@ -2,13 +2,16 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="characterListAdapter"
             type="com.sample.marvelapplication.presentation.characterlist.CharacterListAdapter" />
 
         <variable
-            name="errorMessage"
-            type="String" />
+            name="viewModel"
+            type="com.sample.marvelapplication.presentation.characterlist.CharacterListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adapter="@{characterListAdapter}"
+            app:listData = "@{viewModel.characterList}"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +38,10 @@
             android:id="@+id/tvError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{errorMessage}"
+            android:text="@string/error_message"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_error_character_list"
-            android:visibility="gone"
+            android:visibility="@{viewModel.showErrorMessage ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +51,7 @@
             android:id="@+id/pbLoading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="@{viewModel.isLoad ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

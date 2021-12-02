@@ -1,7 +1,7 @@
-package com.sample.data.source.characterdetails
+package com.sample.data.datasource.source.characterdetails
 
-import com.sample.data.api.CharacterApi
-import com.sample.data.mapper.characterdetails.CharacterDetailsResponseMapper
+import com.sample.data.datasource.api.CharacterApi
+import com.sample.data.datasource.mapper.characterdetails.CharacterDetailsResponseMapper
 import com.sample.domain.common.Result
 import com.sample.domain.model.MarvelCharacter
 import kotlinx.coroutines.Dispatchers

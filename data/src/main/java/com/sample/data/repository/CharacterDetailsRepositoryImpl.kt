@@ -1,6 +1,6 @@
 package com.sample.data.repository
 
-import com.sample.data.source.characterdetails.CharacterDetailsDataSource
+import com.sample.data.datasource.source.characterdetails.CharacterDetailsDataSource
 import com.sample.domain.common.Result
 import com.sample.domain.model.MarvelCharacter
 import com.sample.domain.repository.CharacterDetailsRepository

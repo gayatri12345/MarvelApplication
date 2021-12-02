@@ -1,9 +1,8 @@
 package com.sample.data.repository
 
 import com.nhaarman.mockitokotlin2.whenever
-import com.sample.data.source.characterlist.CharacterListDataSource
+import com.sample.data.datasource.source.characterlist.CharacterListDataSource
 import com.sample.domain.common.Result
-import com.sample.domain.model.CharacterThumbnail
 import com.sample.domain.model.MarvelCharacter
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -39,8 +38,7 @@ class CharacterListRepositoryImplTest {
                 listOf(
                     MarvelCharacter(
                         1017100, "BOB", "Test",
-                        "Test",
-                        CharacterThumbnail("Test", "Test")
+                        "Test", "Test.Test"
                     )
                 )
             )

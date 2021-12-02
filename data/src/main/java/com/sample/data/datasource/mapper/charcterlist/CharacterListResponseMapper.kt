@@ -1,4 +1,4 @@
-package com.sample.data.mapper.charcterlist
+package com.sample.data.datasource.mapper.charcterlist
 
 import com.sample.data.entities.CharacterListResponse
 import com.sample.domain.model.MarvelCharacter

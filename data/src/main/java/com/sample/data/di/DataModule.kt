@@ -1,14 +1,14 @@
 package com.sample.data.di
 
-import com.sample.data.mapper.characterdetails.CharacterDetailsResponseMapperImpl
-import com.sample.data.mapper.charcterlist.CharacterListResponseMapperImpl
-import com.sample.data.source.characterdetails.CharacterDetailsDataSourceImpl
+import com.sample.data.datasource.mapper.characterdetails.CharacterDetailsResponseMapperImpl
+import com.sample.data.datasource.mapper.charcterlist.CharacterListResponseMapperImpl
+import com.sample.data.datasource.source.characterdetails.CharacterDetailsDataSourceImpl
 import com.sample.data.repository.CharacterDetailsRepositoryImpl
-import com.sample.data.source.characterlist.CharacterListDataSourceImpl
+import com.sample.data.datasource.source.characterlist.CharacterListDataSourceImpl
 import com.sample.data.repository.CharacterListRepositoryImpl
 
 object DataModule {
-    val networkModule by lazy {
+    private val networkModule by lazy {
         NetworkModule()
     }
 
@@ -34,7 +34,7 @@ object DataModule {
     fun provideCharacterDetailsRepository(): CharacterDetailsRepositoryImpl {
         // useful because this method can be accessed by multiple threads
         synchronized(this) {
-            return characterDetailsRepository ?: createCharacterDeatilsRepository()
+            return characterDetailsRepository ?: createCharacterDetailsRepository()
         }
     }
 
@@ -56,7 +56,7 @@ object DataModule {
     /**
      * This method creates character details repository
      */
-    private fun createCharacterDeatilsRepository(): CharacterDetailsRepositoryImpl {
+    private fun createCharacterDetailsRepository(): CharacterDetailsRepositoryImpl {
         val newRepo =
             CharacterDetailsRepositoryImpl(
                 CharacterDetailsDataSourceImpl(

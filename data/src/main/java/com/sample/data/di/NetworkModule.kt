@@ -1,7 +1,7 @@
 package com.sample.data.di
 
 import com.sample.data.BuildConfig
-import com.sample.data.api.CharacterApi
+import com.sample.data.datasource.api.CharacterApi
 import com.sample.data.utils.getHashKey
 import com.sample.data.utils.getTimeStamp
 import dagger.Module

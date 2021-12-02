@@ -1,7 +1,6 @@
-package com.sample.data.source.characterlist
+package com.sample.data.datasource.source.characterlist
 
 import com.sample.domain.common.Result
-import com.sample.data.entities.Results
 import com.sample.domain.model.MarvelCharacter
 
 /**

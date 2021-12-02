@@ -8,10 +8,5 @@ data class MarvelCharacter(
     val name: String,
     val description: String,
     val modified: String,
-    val thumbnail: CharacterThumbnail
+    val thumbnail: String
 )
-
-/**
- * Data class for Character thumbnail
- */
-data class CharacterThumbnail(val path: String, val extension: String)

@@ -1,13 +1,13 @@
-package com.sample.data.source.characterdetails
+package com.sample.data.datasource.source.characterdetails
 
 import com.nhaarman.mockitokotlin2.whenever
-import com.sample.data.api.CharacterApi
+import com.sample.data.datasource.api.CharacterApi
 import com.sample.data.entities.CharacterListResponse
 import com.sample.data.entities.Data
 import com.sample.data.entities.Results
 import com.sample.data.entities.Thumbnail
-import com.sample.data.mapper.characterdetails.CharacterDetailsResponseMapper
-import com.sample.data.mapper.characterdetails.CharacterDetailsResponseMapperImpl
+import com.sample.data.datasource.mapper.characterdetails.CharacterDetailsResponseMapper
+import com.sample.data.datasource.mapper.characterdetails.CharacterDetailsResponseMapperImpl
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking

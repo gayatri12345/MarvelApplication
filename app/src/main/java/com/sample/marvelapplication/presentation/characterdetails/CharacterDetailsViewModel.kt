@@ -1,6 +1,8 @@
 package com.sample.marvelapplication.presentation.characterdetails
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.sample.domain.common.Result
 import com.sample.domain.model.MarvelCharacter
 import com.sample.domain.usecase.characterdetails.GetCharacterDetailsUseCase
@@ -16,7 +18,7 @@ class CharacterDetailsViewModel @Inject constructor(
 
     val characterDetails: MutableLiveData<MarvelCharacter> = MutableLiveData()
     val isLoad = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String>()
+    val showErrorMessage = MutableLiveData(false)
 
     /**
      * This method gets character details
@@ -29,12 +31,13 @@ class CharacterDetailsViewModel @Inject constructor(
             when (val characterDetailResult = getCharacterDetailsUseCase.invoke(characterId)) {
                 is Result.Success -> {
                     isLoad.postValue(false)
-                    characterDetails.value = characterDetailResult.data
+                    characterDetails.postValue(characterDetailResult.data)
+                    showErrorMessage.postValue(false)
                 }
                 is Result.Error -> {
                     isLoad.postValue(false)
-                    characterDetails.value = null
-                    errorMessage.postValue(characterDetailResult.exception.message)
+                    characterDetails.postValue(null)
+                    showErrorMessage.postValue(true)
                 }
             }
         }

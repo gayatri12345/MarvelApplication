@@ -1,7 +1,8 @@
-package com.sample.marvelapplication
+package com.sample.marvelapplication.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sample.marvelapplication.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

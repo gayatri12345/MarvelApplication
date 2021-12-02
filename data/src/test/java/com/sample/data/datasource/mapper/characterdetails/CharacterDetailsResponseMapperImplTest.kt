@@ -1,10 +1,9 @@
-package com.sample.data.mapper.characterdetails
+package com.sample.data.datasource.mapper.characterdetails
 
 import com.sample.data.entities.CharacterListResponse
 import com.sample.data.entities.Data
 import com.sample.data.entities.Results
 import com.sample.data.entities.Thumbnail
-import com.sample.domain.model.CharacterThumbnail
 import com.sample.domain.model.MarvelCharacter
 import org.junit.Before
 import org.junit.Test
@@ -35,8 +34,7 @@ class CharacterDetailsResponseMapperImplTest {
         marvelCharacter =
             MarvelCharacter(
                 1017100, "BOB", "Test",
-                "Test",
-                CharacterThumbnail("Test", "Test")
+                "Test","Test.Test"
             )
     }
 

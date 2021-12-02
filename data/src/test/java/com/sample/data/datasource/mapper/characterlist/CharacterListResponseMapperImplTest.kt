@@ -1,12 +1,11 @@
-package com.sample.data.mapper.characterlist
+package com.sample.data.datasource.mapper.characterlist
 
 import com.sample.data.entities.CharacterListResponse
 import com.sample.data.entities.Data
 import com.sample.data.entities.Results
 import com.sample.data.entities.Thumbnail
-import com.sample.data.mapper.charcterlist.CharacterListResponseMapper
-import com.sample.data.mapper.charcterlist.CharacterListResponseMapperImpl
-import com.sample.domain.model.CharacterThumbnail
+import com.sample.data.datasource.mapper.charcterlist.CharacterListResponseMapper
+import com.sample.data.datasource.mapper.charcterlist.CharacterListResponseMapperImpl
 import com.sample.domain.model.MarvelCharacter
 import org.junit.Before
 import org.junit.Test
@@ -38,8 +37,7 @@ class CharacterListResponseMapperImplTest {
         list = listOf(
             MarvelCharacter(
                 1017100, "BOB", "Test",
-                "Test",
-                CharacterThumbnail("Test", "Test")
+                "Test","Test.Test"
             )
         )
     }

@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                bind:image='@{character.thumbnail.component1()+"."+character.thumbnail.component2()}' />
+                bind:image='@{character.thumbnail}' />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clCharacterInfoContainer"

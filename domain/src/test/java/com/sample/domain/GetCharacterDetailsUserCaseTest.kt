@@ -3,7 +3,6 @@ package com.sample.domain
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.whenever
 import com.sample.domain.common.Result
-import com.sample.domain.model.CharacterThumbnail
 import com.sample.domain.model.MarvelCharacter
 import com.sample.domain.repository.CharacterDetailsRepository
 import com.sample.domain.usecase.characterdetails.GetCharacterDetailsUseCaseImpl
@@ -43,7 +42,7 @@ class GetCharacterDetailsUserCaseTest {
                     MarvelCharacter(
                         1017100, "BOB", "Test",
                         "Test",
-                        CharacterThumbnail("Test", "Test")
+                        "Test.Test"
                     )
             )
         )

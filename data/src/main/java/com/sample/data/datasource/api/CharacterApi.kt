@@ -1,4 +1,4 @@
-package com.sample.data.api
+package com.sample.data.datasource.api
 
 import com.sample.data.entities.CharacterListResponse
 import retrofit2.Response
